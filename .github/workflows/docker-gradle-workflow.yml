@@ -8,8 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/chizoba/gradle-dependency-cache:latest
+      volumes:
+        - /usr/local/lib/android/sdk:/android/sdk
       env:
-        ANDROID_HOME:
+        ANDROID_HOME: /android/sdk
 
     steps:
       - name: Checkout
