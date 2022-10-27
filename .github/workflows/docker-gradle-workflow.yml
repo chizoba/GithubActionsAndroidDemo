@@ -6,7 +6,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: ghcr.io/chizoba/gradle-dependency-cache:latest
+    container:
+      image: ghcr.io/chizoba/gradle-dependency-cache:latest
+      env:
+        ANDROID_HOME:
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
