@@ -1,0 +1,25 @@
+name: Docker Gradle
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: ghcr.io/chizoba/gradle-dependency-cache:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+#      - name: Setup Java
+#        uses: actions/setup-java@v2
+#        with:
+#          distribution: "adopt"
+#          java-version: "11"
+
+#      - name: Setup Gradle
+#        uses: gradle/gradle-build-action@v2
+
+
+      - name: Assemble App
+        run: gradle app:assembleDebug
